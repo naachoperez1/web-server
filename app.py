@@ -6,8 +6,7 @@ import sqlite3
 import threading
 
 app = Flask(__name__)
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1011nacho11@localhost:5432/new_db'
-# db.init_app(app)
+
 conexion = conn = sqlite3.connect("C:/Users/NoteBook/data.db", check_same_thread=False)
 
 @app.route('/inicio')
@@ -25,10 +24,6 @@ def registro():
         nombre = request.form['nombre']
         correo_electronico = request.form['correo_electronico']
         contrasena = generate_password_hash(request.form['contrasena'])
-
-        # usuario = Usuario(nombre=nombre, correo_electronico=correo_electronico, contrasena=contrasena)
-        # db.session.add(usuario)
-        # db.session.commit()
         database.add_entry(conexion,nombre, correo_electronico, contrasena)
         return inicio()
 
