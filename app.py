@@ -7,7 +7,7 @@ import threading
 
 app = Flask(__name__)
 
-conexion = conn = sqlite3.connect("C:/Users/NoteBook/data.db", check_same_thread=False)
+conexion = conn = sqlite3.connect("YOUR_DATABSE_LOCATION", check_same_thread=False)
 
 @app.route('/inicio')
 def inicio():
